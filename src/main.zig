@@ -3,6 +3,8 @@ const print = @import("print.zig").print;
 const errors = @import("errors.zig");
 const pointers = @import("pointers.zig").main;
 
+const submodule = @import("submodule-name");
+
 // const c = @cImport({
 //     @cInclude("./clib.h");
 // });
@@ -70,6 +72,8 @@ pub fn main() u8
 
     @import("struct.zig").main();
     @import("loops.zig").main();
+
+    submodule.library_function();
 
     return 0;
 }

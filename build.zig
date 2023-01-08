@@ -13,6 +13,9 @@ pub fn build(b: *Builder) void
 
     const exe = b.addExecutable("test", "src/main.zig");
     exe.setBuildMode(b.standardReleaseOptions());
+
+    exe.addPackage(.{ .name = "submodule-name", .source = .{ .path = "submodule/src/lib.zig" } });
+
     // exe.linkLibC();
     // exe.setOutputDir(".");
     // exe.linkLibrary(clib);
