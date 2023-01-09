@@ -5,9 +5,9 @@ const pointers = @import("pointers.zig").main;
 
 const submodule = @import("submodule-name");
 
-// const c = @cImport({
-//     @cInclude("./clib.h");
-// });
+const c = @cImport({
+    @cInclude("clib.h");
+});
 
 // function return types:
 //   - datatype (function must not have an error condition or handle all possible errors internally)
@@ -61,7 +61,8 @@ pub fn main() u8
     // ignore errors by providing empty catch body
     throw_error_test(true) catch {};
 
-    //c.add(1, 2);
+    // call C function
+    print("clib::add(1, 2) -> {}\n", .{c.add(1, 2)});
 
     //test_panic_handler();
 
